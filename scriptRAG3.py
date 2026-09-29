@@ -1,3 +1,6 @@
+# Les résultats confirment la théorie : 0,6278 pour les deux phrases de sécurité contre 0,5534 avec la cuisine. Le modèle capte bien que les phrases 1 et 2 partagent le même univers sémantique.
+
+
 import math
 import ollama
 
