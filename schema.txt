@@ -1,0 +1,27 @@
+\begin{tikzpicture}[node distance=2.5cm, auto]
+    % Définition des Enclaves et de leurs niveaux de protection (e)
+    % E1 : Niveau Secret, Crypt(E1) = True
+    \node[draw, rectangle, rounded corners, minimum width=3cm, minimum height=2cm, label=below:{Enclave $e_1$ ($e = \text{Secret}$, $\text{Crypt}=\text{True}$)}] (E1) {};
+    
+    % E2 : Niveau Public (vide), Crypt(E2) = False (Enclave de transit non fiable)
+    \node[draw, rectangle, rounded corners, right of=E1, node distance=4.5cm, minimum width=3cm, minimum height=2cm, label=below:{Enclave $e_2$ ($e = \emptyset$, $\text{Crypt}=\text{False}$)}] (E2) {};
+    
+    % E3 : Niveau Secret, Crypt(E3) = True
+    \node[draw, rectangle, rounded corners, right of=E2, node distance=4.5cm, minimum width=3cm, minimum height=2cm, label=below:{Enclave $e_3$ ($e = \text{Secret}$, $\text{Crypt}=\text{True}$)}] (E3) {};
+
+    % Définition des Fonctions (fid, Ec, ftype, c_level)
+    % f1 : Création de la donnée avec niveau Secret dans E1
+    \node[draw, fill=purple!15, at=(E1.center)] (f1) {$^C f_1 : \text{Secret}$};
+    
+    % f2 : Transit dans E2 (donnée chiffrée, donc niveau effectif = vide)
+    \node[draw, fill=green!15, at=(E2.center)] (f2) {$^T f_2 : \perp$};
+    
+    % f3 : Lecture de la donnée déchiffrée dans E3
+    \node[draw, fill=yellow!20, at=(E3.center)] (f3) {$^R f_3 : \perp$};
+
+    % Flux de données et mécanismes cryptographiques (Cas 3 de la Figure 1 / Règle R3)
+    \draw[->, thick] (f1) -- node[above, font=\footnotesize] {$\text{Ciph}(\text{data})$} node[below, font=\footnotesize] {$\text{Action}=\text{ciphered}$} (f2);
+    \draw[->, thick] (f2) -- node[above, font=\footnotesize] {$\text{Deciph}(\text{data})$} (f3);
+\end{tikzpicture}
+
+

@@ -37,6 +37,3 @@ response = ollama.generate(model="llama3.1", prompt=prompt)
 print("\n--- REPONSE DU RAG ---")
 print(response["response"])
 
-
-
-

@@ -1,5 +1,6 @@
 ####################### AGENT IA : Retrieval-Augmented Generation  #######################
 
+# todo il faut essayer les modèles : BGE-M3
 import chromadb
 import ollama
 

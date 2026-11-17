@@ -4,7 +4,7 @@ import chromadb
 
 # 1. Charger le fichier
 anssi = PdfReader('guide_anssi.pdf')
-
+bourdelles = PdfReader('ING4_rules.pdf')
 # 2. Extraire le texte de toutes les pages dans une chaîne
 texte_complet = ""
 for page in anssi.pages:
